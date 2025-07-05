@@ -1,12 +1,24 @@
-body {
+html,body {
+    height: 100%;
     margin: 0;
+    padding: 0;
     background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 #nav-left {
@@ -21,6 +33,11 @@ header {
     justify-content: center;
 }
 
+#search-container{
+    position: relative;
+}
+
+
 #search {
     border: none;
     border-radius: 1rem;
@@ -28,7 +45,7 @@ header {
     width: 32rem;
     min-width: 50%;
     background-color: #f4f4f4;
-    padding: 0rem 2rem 0rem 1rem;
+    padding: 0rem 2.5rem 0rem 1rem;
 }
 
 #search:focus {
@@ -37,8 +54,8 @@ header {
 }
 
 .search-icon {
-    position: relative;
-    right: 1.5rem;
+    position: absolute;
+    right: 1rem;
 }
 
 /* styling for TRELLO logo and boards div*/
@@ -49,6 +66,10 @@ header {
     border-right: 1px solid #979797;
 }
 
+#logo {
+    margin-right: 0rem;
+}
+
 #nav-right {
     display: flex;
     align-items: center;
@@ -57,15 +78,113 @@ header {
     margin: 0rem 1rem 0rem 0rem;
 }
 
+#nav-right i{
+    transition: all 0.3s ease;
+}
+
 #nav-right img{
     border-radius: 50%;
     height: 2.5rem;
     width: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+#nav-right i:hover,img:hover{
+    transform:scale(1.2);
+    color: #2d2d2d;
 }
 
 hr{
     background-color: #979797;
     height: 0.5px;
+}
+
+#kaban-board{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+#empty-board{
+    display: none;
+    border: 0.313rem dashed black;
+    border-radius: 1rem;
+    padding: 5rem;
+}
+
+#createCategoryModal{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(148, 148, 148, 0.849);
+    box-sizing: border-box;
+}
+
+#category-form{
+    position: relative;
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transform: scale(1.5);
+}
+
+#category-form form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#category-form form *{
+    margin: 0.313rem;
+}
+
+#category{
+    border-radius: 0.313rem;
+    background-color: #f4f4f4;
+    height: 1rem;
+    border: none;
+    padding: 0.313rem;
+}
+
+#category:focus{
+    outline: none;
+}
+
+#close-category-form{
+    position: absolute;
+    top: 0.313rem;
+    right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+
+#close-category-form:hover {
+    transform: scale(1.3);
+}
+
+.submit-btn{
+    background-color: black;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transform: scale(0.97);
+    transition: all 0.2s ease;
+    color: white;
+
+}
+
+.submit-btn:hover {
+    transform: scale(1);
+    background-color: #979797;
+    color: black;
 }
 
 /* poppins font style */
