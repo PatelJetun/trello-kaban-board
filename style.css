@@ -100,12 +100,16 @@ hr{
 }
 
 #kaban-board{
+    padding: 0rem 1rem 0rem 1rem;
     flex: 1 1 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: auto;
-    gap: 1rem
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: 0;
+    width: 100%;
 }
 
 #empty-board{
@@ -195,11 +199,13 @@ hr{
     justify-content: flex-start;
     flex-direction: column;
     width: 22.625rem;
+    min-height: 22.625rem;
+    max-width: 22.625rem;
     height: 100%;
     padding-top: 1rem;
     box-sizing: border-box;
     gap: 0.5rem;
-    
+    flex-shrink: 0;
 }
 
 .category-title{
