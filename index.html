@@ -78,11 +78,35 @@
         <div id="empty-board">
             <h1 class="poppins-semibold">Please Create A Category first </h1>
         </div>
+
+        <div class="category-col">
+            <div class="category-title">
+                <p class="poppins-medium">Test Title</p>
+                <i class="fa-solid fa-ellipsis fa-xl" style="color: #cdccca;"></i>
+            </div>
+            <div class="task-card">
+                <div class="task-type">
+                    <label class="task-type-label poppins-medium">Type</label>
+                </div>
+                <div class="task-content">
+                    <p class="task-content-main poppins-regular">Test Task Heading</p>
+                    <p class="task-content-description poppins-light">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Fugiat, eveniet!</p>
+                </div>
+                <div class="task-settings">
+                        <span class="like-count poppins-light">0</span>
+                        <i class="task-like fa-regular fa-heart" style="color: #cdccca;"
+                            onmouseout="this.style.color='#cdccca'" onmouseover="this.style.color='black'"></i>
+                    <i class="task-edit fa-solid fa-pen" style="color: #cdccca;" onmouseout="this.style.color='#cdccca'"
+                        onmouseover="this.style.color='black'"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="createCategoryModal">
         <div id="category-form">
-            <i id="close-category-form"class="fa-solid fa-xmark" style="color: #d80c0c;"></i>
+            <i id="close-category-form" class="fa-solid fa-xmark" style="color: #d80c0c;"></i>
             <form class="poppins-regular">
                 <label for="category">Category</label>
                 <input type="text" id="category" placeholder="Category....">

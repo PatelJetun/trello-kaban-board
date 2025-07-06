@@ -105,6 +105,7 @@ hr{
     align-items: center;
     justify-content: center;
     overflow: auto;
+    gap: 1rem
 }
 
 #empty-board{
@@ -185,6 +186,92 @@ hr{
     transform: scale(1);
     background-color: #979797;
     color: black;
+}
+
+.category-col{
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 22.625rem;
+    height: 100%;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    gap: 0.5rem;
+    
+}
+
+.category-title{
+    background-color: #f4f4f4;
+    border-radius: 0.625rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1.5rem 0rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.task-card{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    border-radius: 0.625rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+}
+
+.task-type{
+    display: flex;
+    align-items:start;
+    justify-content: center;
+}
+
+.task-type-label{
+    font-size: 12px;
+    border-radius: 0.625rem;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    background-color: rgb(252, 1, 1);
+    box-sizing: border-box;
+    color: white;
+}
+
+.task-content-main{
+    font-size: 16px;
+    margin-bottom: 0rem;
+}
+
+.task-content-description{
+    margin-top: 0rem;
+    font-size: 13px;
+    color: #979797;
+}
+
+.task-settings{
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.like-count{
+    font-size: 17px;
+    color: #cdccca;
+}
+
+.task-like{
+    padding: 0rem 1rem 0rem 0.2rem;
+}
+
+.task-like:hover,.task-edit:hover{
+    transform: scale(1.2);
+}
+
+.task-like,.task-edit{
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 /* poppins font style */
