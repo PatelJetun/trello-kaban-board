@@ -108,7 +108,7 @@ hr{
 }
 
 #empty-board{
-    display: none;
+    /* display: none; */
     border: 0.313rem dashed black;
     border-radius: 1rem;
     padding: 5rem;
