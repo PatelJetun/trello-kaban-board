@@ -4,7 +4,7 @@ const closeCategoryForm = document.querySelector("#close-category-form");
 const categorySubmitBtn = document.querySelector("#category-form .submit-btn");
 const kabanBoard = document.querySelector("#kaban-board");
 const emptyBoard = document.querySelector("#empty-board");
-let category = [];
+let localData = [];
 
 window.onload = loadLocalData();
 
@@ -31,51 +31,73 @@ function handleCategoryForm(e) {
     alert("Please Enter Category Before Submitting form");
   } else {
     if (
-      category.find((element) => categoryInput.value) === categoryInput.value
+      //checking if category already exists or not
+      localData.forEach((value) => {
+        
+        if(value.category === categoryInput.value){
+          return true;
+        } else{
+          return false
+        }
+      })
     ) {
       alert("Category already exists");
     } else {
-      category.push(categoryInput.value);
+    
+      //  creating new category 
+      const newCategory = {
+        category: categoryInput.value,
+        tasks: [],
+      }; 
+      localData.push(newCategory);
       categoryModal.style.display = "none";
       addCategoryCol(categoryInput.value);
       categoryInput.value = null;
-      console.log(category);
+      console.log(localData);
     }
   }
 }
 
 function loadLocalData() {
-  if (localStorage.getItem("category")) {
-    category = JSON.parse(localStorage.getItem("category"));
-    category.forEach((value) => {
-      addCategoryCol(value);
+  if (localStorage.getItem("data")) {
+    localData = JSON.parse(localStorage.getItem("data"));
+    localData.forEach((value) => {
+      addCategoryCol(value.category);
     });
   }
 }
 
 function addCategoryCol(title) {
+  //display style changes in kaban board and removing empty board div
   emptyBoard.style.display = "none";
   kabanBoard.style.justifyContent = "flex-start";
+
   //create new cateogry column
   const categoryCol = document.createElement("div");
   categoryCol.classList.add("category-col");
+
   //create title div for category
   const categoryTitle = document.createElement("div");
   categoryTitle.classList.add("category-title");
+
   //create add task card div
-  const addTask = document.createElement('div')
-  addTask.classList.add('add-task-card','poppins-regular')
+  const addTask = document.createElement("div");
+  addTask.classList.add("add-task-card", "poppins-regular");
   addTask.innerHTML = `<p>+ Add new Card</p>`;
+
   //appending category title to the column
   categoryCol.appendChild(categoryTitle);
   categoryTitle.innerHTML = `<p class="poppins-medium">${title}</p>
         <i class="fa-solid fa-ellipsis fa-xl" style="color: #cdccca;"></i>`;
+
   //appending add task card to the category column
-  categoryCol.appendChild(addTask)
+  categoryCol.appendChild(addTask);
   categoryCol.style.display = "flex";
+
   // appending category column to the board
   kabanBoard.appendChild(categoryCol);
+
   //storing newly added category in local storage
-  let str = JSON.stringify(category);
-  localStorage.setItem("category", str);
+  let str = JSON.stringify(localData);
+  localStorage.setItem("data", str);
 }
