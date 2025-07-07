@@ -294,6 +294,7 @@ hr {
     border-radius: 0.625rem;
     transition: all 0.3s ease;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .add-task-card:hover{
