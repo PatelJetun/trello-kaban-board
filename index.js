@@ -4,6 +4,10 @@ const closeCategoryForm = document.querySelector("#close-category-form");
 const categorySubmitBtn = document.querySelector("#category-form .submit-btn");
 const kabanBoard = document.querySelector("#kaban-board");
 const emptyBoard = document.querySelector("#empty-board");
+const taskCardModal = document.querySelector("#createTaskCardModal");
+const closeTaskCardBtn = document.querySelector("#close-task-form");
+const taskCardSubmitBtn = document.querySelector("taskCardFormSubmitBtn");
+let taskCardCategory = null
 let localData = [];
 
 window.onload = loadLocalData();
@@ -12,6 +16,8 @@ addCategory.addEventListener("click", openCategoryModal);
 categoryModal.addEventListener("click", closeCategoryModal);
 closeCategoryForm.addEventListener("click", closeCategoryModal);
 categorySubmitBtn.addEventListener("click", handleCategoryForm);
+closeTaskCardBtn.addEventListener("click", closeTaskCardModal)
+taskCardModal.addEventListener("click", handleTaskCardForm)
 
 function openCategoryModal() {
   categoryModal.style.display = "flex";
@@ -100,4 +106,32 @@ function addCategoryCol(title) {
   //storing newly added category in local storage
   let str = JSON.stringify(localData);
   localStorage.setItem("data", str);
+}
+
+//Coded at the end to Get all Add new Card buttons added by addCategoryCol 
+const addTaskBtn = document.querySelectorAll(".add-task-card");
+
+//Adding Click listeners to addTaskBtn
+addTaskBtn.forEach((btn) => {
+  btn.addEventListener('click', openTaskCardModal)
+})
+
+//Opens Task Card Form
+function openTaskCardModal(e){
+  //Getting the category for the task card to add into
+  const catCol = e.target.closest(".category-col");
+  taskCardCategory = catCol.querySelector(".category-title p").innerText;
+  taskCardModal.style.display = 'flex';
+}
+
+//Close Task Cardf Form
+function closeTaskCardModal() {
+  taskCardCategory = null
+  taskCardModal.style.display = 'none';
+}
+
+//Handles Submission of task Card form
+function handleTaskCardForm(e){
+  e.preventDefault()
+  
 }
