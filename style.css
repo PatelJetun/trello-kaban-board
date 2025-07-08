@@ -301,6 +301,78 @@ hr {
     transform: scale(0.96);
 }
 
+#createTaskCardModal{
+    /* display: none; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(148, 148, 148, 0.849);
+    box-sizing: border-box;
+}
+
+#taskCardForm{
+    position: relative;
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transform: scale(1.35);
+}
+
+#close-task-form{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#close-task-form:hover{
+    transform: scale(1.2);
+}
+
+#taskCardForm form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#taskCardForm label{
+    align-self: flex-start;
+}
+
+#taskCardForm form *{
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+
+#taskTitle, #taskDescription, #taskType{
+    border-radius: 0.313rem;
+    background-color: #f4f4f4;
+    height: 1.5rem;
+    width: 100%;
+    border: none;
+    padding: 0.313rem;
+    box-sizing: border-box;
+}
+
+#taskCardFormSubmitBtn{
+    background-color: black;
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transform: scale(0.97);
+    transition: all 0.2s ease;
+    color: white;
+}
+
 /* poppins font style */
 .poppins-thin {
     font-family: "Poppins", sans-serif;
