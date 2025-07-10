@@ -222,6 +222,8 @@ hr {
 }
 
 .task-card {
+    width: 100%;
+    min-height: 10.625rem;
     display: flex;
     align-items: flex-start;
     justify-content: center;
